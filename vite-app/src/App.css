@@ -1,0 +1,71 @@
+body {
+  padding: 0%;
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.App {
+  text-align: center;
+  background-color: #121212;
+  color: white;
+  height: 100vh;
+}
+
+nav {
+  margin: 0;
+  border-bottom: 1px solid dimgray;
+  display: grid;
+  place-items: center;
+}
+
+nav h1 {
+  margin: 0;
+  padding: 10px;
+  color: white;
+  font-size: 45px;
+}
+
+.grid {
+  padding: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.tile {
+  display: inline-block;
+  margin: 3px;
+  border: 1px solid dimgray;
+  background-color: #121212;
+  color: white;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.honeycomb {
+  margin-top: 30px;
+}
+
+.hexagon {  
+  display: inline-block;
+  background-color: lightgray;
+  color: black;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.required {
+  background-color: gold;
+}
+
+.emptyspace {
+  display: inline-block;
+  width: 105px;
+}
