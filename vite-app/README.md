@@ -1,8 +1,12 @@
-# React + Vite
+# Spelling Bordle
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### How To Play
+Guess the word in 6 tries using letters from the hive.
+- Each guess must be a valid 5-letter word using only letters from the hive.
+- Words must include the center letter.
+- Letters can be used more than once.
+- The color of the tiles will change to show how close your guess was to the word.
+    - Examples:
+        - Green: letter is in the word and in the correct spot.
+        - Yellow: letter is in the word but in the wrong spot.
+        - Gray: letter is not in the word in any spot.
