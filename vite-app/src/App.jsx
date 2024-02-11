@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <h1>Spelling Beedle</h1>
+        <h1>Spelling Bordle</h1>
       </nav>
       <Grid />
       <Honeycomb />
