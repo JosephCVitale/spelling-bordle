@@ -45,6 +45,14 @@ const Grid = () => {
                 <Tile/>
             </div>
 
+            <div className="row">
+                <Tile/>
+                <Tile/>
+                <Tile/>
+                <Tile/>
+                <Tile/>
+            </div>
+
         </div> 
     );
 }
