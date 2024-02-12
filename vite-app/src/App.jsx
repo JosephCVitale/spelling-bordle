@@ -31,22 +31,28 @@ function App() {
   useEffect(() => {
     const handleKeyPress = (event) => {
       //TODO: add backspace functionality
+      //TODO: handle user entering uppercase letter
       if(win || lose){
         console.log('game over');
       } else if (guess.length == 5 && event.key === 'Enter') {
         if (guess == answer){
           // winning guess
-          console.log('win!');
+          setRow(row => row+1);
+          setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
           setWin(true);
+          alert("You win!");
         } else if (validWords.includes(guess)){
           // incorrect guess
           console.log('valid guess');
           if(row == 5){
-            console.log('lose!');
+            setRow(row => row+1);
+            setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
             setLose(true);
+            alert("You lose!");
+          } else {
+            setRow(row => row+1);
+            setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
           }
-          setRow(row => row+1);
-          setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
         } else {
           // invalid guess
           console.log('not valid guess');
@@ -66,6 +72,7 @@ function App() {
   }, [guess, col, row, prevGuesses]);
 
   // mainly for logging purposes
+  
   useEffect(() => {
     console.log('Most recent guess:', guess);
   }, [guess]);
@@ -75,16 +82,24 @@ function App() {
   useEffect(() => {
     console.log('row:', row);
   }, [row]);
+  /*
   useEffect(() => {
     prevGuesses.forEach((element) => console.log(element));
   }, [prevGuesses]);
+  */
 
   return (
     <div className="App">
       <nav>
         <h1>Spelling Bordle</h1>
       </nav>
-      <Grid />
+      <Grid 
+        guess = {guess}
+        col = {col}
+        row = {row}
+        prevs = {prevGuesses}
+        ans = {answer}
+      />
       <Honeycomb />
     </div>
   )
