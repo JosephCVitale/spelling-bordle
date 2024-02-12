@@ -12,15 +12,15 @@ const Tile = ({guess, prevs, guessCol, guessRow, tileCol, tileRow, ans}) => {
             const prevGuess = prevs[tileRow];
             const letter = prevGuess.charAt(tileCol-1);
             const ansLetter = ans.charAt(tileCol-1);
-
             if(letter == ansLetter){
                 setContent(<div style={{backgroundColor: "forestgreen"}}>{letter}</div>);
             } else if(ans.includes(letter)){
                 setContent(<div style={{backgroundColor: "goldenrod"}}>{letter}</div>);
             } else {
                 setContent(<div style={{backgroundColor: "dimgray"}}>{letter}</div>);
-            }
-
+            } 
+        } else if (guessCol < tileCol) {
+            setContent(<div>&#8203;</div>);
         }
     }, [guess, prevs, guessCol, guessRow, tileCol, tileRow]);
 
