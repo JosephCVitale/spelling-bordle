@@ -20,7 +20,7 @@ const Honeycomb = () => {
                 <div className="hexagon">R</div>
             </div>
             <div>
-                <div className="hexagon">C</div>
+                <div className="hexagon">V</div>
             </div>
         </div>
 

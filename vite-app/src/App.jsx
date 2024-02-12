@@ -12,21 +12,7 @@ function App() {
   ];
 
   // TODO: replace hard coded values with randomly generated
-  const validWords = [
-    "avail",
-    "chair",
-    "chica",
-    "chili",
-    "chill",
-    "cilia",
-    "circa",
-    "civic",
-    "civil",
-    "lilac",
-    "rival",
-    "villa",
-    "viral",
-  ];
+  const validWords = [ "avail", "chair", "chica", "chili", "chill", "cilia", "circa", "civic", "civil", "lilac", "rival", "villa", "viral"];
   const answer = 'viral';
 
   const [guess, setGuess] = useState('');
@@ -52,18 +38,18 @@ function App() {
           setCol(0)
           setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
           setWin(true);
-          alert("You win!");
-        } else if (validWords.includes(guess)){
+          //alert("You win!");
+        } else if (validWords.includes(guess) && !prevGuesses.includes(guess)){
           setRow(row => row+1);
           setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
           setGuess('');
           setCol(0);
           if(row == 5){
             setLose(true);
-            alert("You lose!");
+            //alert("You lose!");
           } 
         } else {
-          alert('Invalid word');
+          //alert('Invalid word');
         }
       } else if (guess.length < 5){
         const newGuess = guess + event.key.toLowerCase();
@@ -77,7 +63,7 @@ function App() {
     };
   }, [guess, col, row, prevGuesses]);
 
-  // for logging purposes
+  // TODO: remove, for temporary logging purposes
   /*
   useEffect(() => {
     console.log('Most recent guess:', guess);
@@ -98,13 +84,7 @@ function App() {
       <nav>
         <h1>Spelling Bordle</h1>
       </nav>
-      <Grid 
-        guess = {guess}
-        col = {col}
-        row = {row}
-        prevs = {prevGuesses}
-        ans = {answer}
-      />
+      <Grid guess = {guess} col = {col} row = {row} prevs = {prevGuesses} ans = {answer} />
       <Honeycomb />
     </div>
   )
