@@ -13,3 +13,4 @@ Guess the word in 6 tries using letters from the hive.
         - Yellow: letter is in the word but in the wrong spot.
         - Gray: letter is not in the word in any spot.
 - Each honeycomb is guaranteed to have at least 20 possible 5-letter words
+- Inspect the console to cheat
