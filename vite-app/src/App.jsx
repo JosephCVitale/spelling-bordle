@@ -53,7 +53,7 @@ function App() {
           }
         }
       }
-      if(vWords.length >= 100){
+      if(vWords.length >= 20){
         validHoneycomb = true;
       } else {
         hc = generateHoneycomb();
@@ -65,10 +65,13 @@ function App() {
     setHoneycomb(hc);
     setValidWords(vWords);
     setAnswer(ans);
-    console.log(hc);
-    console.log(reqLetter);
-    console.log(vWords);
-    console.log(ans);
+    
+    console.log('You are cheating!')
+    console.log('honeycomb:', hc);
+    console.log('required letter:', reqLetter);
+    console.log('valid words:', vWords);
+    console.log('answer:', ans);
+    
   }, []); 
 
   const eventfulKeys = [
