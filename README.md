@@ -1,5 +1,7 @@
 # Spelling Bordle
 
+view demo: https://crossvitale.com/spelling-bordle/
+
 ### How To Play
 Guess the word in 6 tries using letters from the hive.
 - Each guess must be a valid 5-letter word using only letters from the hive.
