@@ -1,2 +1,2 @@
-# spelling-beedle
+# spelling-bordle
  
