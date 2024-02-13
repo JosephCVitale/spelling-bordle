@@ -1,6 +1,6 @@
 # Spelling Bordle
 
-view demo: https://crossvitale.com/spelling-bordle/
+[Play demo](https://crossvitale.com/spelling-bordle/)
 
 ### How To Play
 Guess the word in 6 tries using letters from the hive.
