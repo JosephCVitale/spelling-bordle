@@ -110,7 +110,7 @@ function App() {
       } else {
         //alert('Invalid word');
       }
-    } else if (guess.length < 5 && input != 'Enter'){
+    } else if (guess.length < 5 && input != 'enter'){
       const newGuess = guess + input.toLowerCase();
       setGuess(newGuess);
       setCol(col => col + 1);
@@ -129,9 +129,6 @@ function App() {
   }, [guess, col, row, prevGuesses]);
 
   const handleHoney = (hexValue) => {
-    if(win || lose || guess.length >= 5){
-      return;
-    } 
     handleInput(hexValue);
   }
 
