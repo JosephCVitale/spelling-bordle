@@ -50,7 +50,8 @@ nav h1 {
   background-color: darkgray;
   margin: auto;
   padding: 10px 0;
-  width: 255px;
+  width: 100%;
+  max-width: 255px; /* Limit width for larger screens */
 }
 
 .hexagon {  
@@ -72,27 +73,15 @@ nav h1 {
 
 .emptyspace {
   display: inline-block;
-  width: 105px;
+  width: 40%; /* Adjust width for mobile screens */
 }
 
 .emptyspace2 {
   display: inline-block;
-  width: 15px;
+  width: 5%; /* Adjust width for mobile screens */
 }
 
-.shuffle {
-  display: inline-block;
-  color: black;
-  height: 40px;
-  width: 40px;
-  line-height: 41px;
-  font-size: 20px;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 40px;
-}
-
+.shuffle,
 .honeyControl {  
   display: inline-block;
   color: black;
@@ -104,4 +93,18 @@ nav h1 {
   cursor: pointer;
   border: 1px solid black;
   border-radius: 40px;
+}
+
+.shuffle {
+  font-size: 20px; /* Increase font size for better visibility on mobile */
+  height: 50px;
+  width: 50px;
+  line-height: 51px;
+}
+
+/* Media Query for mobile screens */
+@media (max-width: 600px) {
+  .grid {
+    width: 90%; /* Adjust grid width for mobile screens */
+  }
 }
