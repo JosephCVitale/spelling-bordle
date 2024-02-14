@@ -9,11 +9,9 @@ const Tile = ({guess, prevs, guessCol, guessRow, tileCol, tileRow, ans}) => {
             const letter = guess.charAt(tileCol-1);
             setContent(<div>{letter}</div>);
         } else if (guessRow > tileRow){
-
             const rowGuess = prevs[tileRow];
             const tileLetter = rowGuess.charAt(tileCol-1);
             const ansLetter = ans.charAt(tileCol-1);
-
             if(tileLetter == ansLetter){
                 setContent(<div style={{backgroundColor: "forestgreen"}}>{tileLetter}</div>);
             } else if (!ans.includes(tileLetter)) {
@@ -35,8 +33,10 @@ const Tile = ({guess, prevs, guessCol, guessRow, tileCol, tileRow, ans}) => {
                     setContent(<div style={{backgroundColor: "dimgray"}}>{tileLetter}</div>);
                 }
             } 
-        } 
-    }, [guess, guessRow]);
+        } else if (guessCol < tileCol){
+            setContent(<div>&#8203;</div>);
+        }
+    }, [guess, guessRow, guessCol]);
 
     return ( 
         <div className = "tile">

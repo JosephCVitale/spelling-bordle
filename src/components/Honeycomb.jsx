@@ -35,6 +35,11 @@ const Honeycomb = ({honeycomb, handleHoney}) => {
             <div>
                 <div className="hexagon" onClick={()=>handleHexClick(hexSeven)}>{hexSeven}</div>
             </div>
+            <div>
+                <div className="honeyControl" onClick={()=>handleHexClick('Backspace')}>Delete</div>
+                <div className="emptyspace"></div>
+                <div className="honeyControl" onClick={()=>handleHexClick('Enter')}>Enter</div>
+            </div>
         </div> 
     );
 }

@@ -76,45 +76,51 @@ function App() {
   }, []); 
 
   const eventfulKeys = [
-    "Backspace", "Enter",
+    "backspace", "enter",
     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
     "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
   ];
 
+  function handleInput(input){
+    input = input.toLowerCase();
+    if (win || lose || !eventfulKeys.includes(input)){
+      // do nothing
+    } else if (input == 'backspace'){
+      if(guess.length != 0){
+        const newGuess = guess.slice(0, guess.length-1);
+        setGuess(newGuess);
+        setCol(col => col-1);
+      }
+    } else if (guess.length == 5 && input === 'enter') {
+      if (guess == answer){
+        setRow(row => row+1);
+        setCol(0)
+        setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
+        setWin(true);
+        //alert("You win!");
+      } else if (validWords.includes(guess) && !prevGuesses.includes(guess)){
+        setRow(row => row+1);
+        setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
+        setGuess('');
+        setCol(0);
+        if(row == 5){
+          setLose(true);
+          //alert("You lose!");
+        } 
+      } else {
+        //alert('Invalid word');
+      }
+    } else if (guess.length < 5 && input != 'Enter'){
+      const newGuess = guess + input.toLowerCase();
+      setGuess(newGuess);
+      setCol(col => col + 1);
+    }
+
+  }
+
   useEffect(() => {
     const handleKeyPress = (event) => {
-      if (win || lose || !eventfulKeys.includes(event.key)){
-        // do nothing
-      } else if (event.key === 'Backspace'){
-        if(guess.length != 0){
-          const newGuess = guess.slice(0, guess.length-1);
-          setGuess(newGuess);
-          setCol(col => col-1);
-        }
-      } else if (guess.length == 5 && event.key === 'Enter') {
-        if (guess == answer){
-          setRow(row => row+1);
-          setCol(0)
-          setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
-          setWin(true);
-          //alert("You win!");
-        } else if (validWords.includes(guess) && !prevGuesses.includes(guess)){
-          setRow(row => row+1);
-          setPrevGuesses(prevGuesses => [...prevGuesses, guess]);
-          setGuess('');
-          setCol(0);
-          if(row == 5){
-            setLose(true);
-            //alert("You lose!");
-          } 
-        } else {
-          //alert('Invalid word');
-        }
-      } else if (guess.length < 5 && event.key != 'Enter'){
-        const newGuess = guess + event.key.toLowerCase();
-        setGuess(newGuess);
-        setCol(col => col + 1);
-      }
+      handleInput(event.key);
     };
     document.addEventListener('keydown', handleKeyPress);
     return () => {
@@ -126,9 +132,7 @@ function App() {
     if(win || lose || guess.length >= 5){
       return;
     } 
-    const newGuess = guess + hexValue;
-    setGuess(newGuess);
-    setCol(col => col + 1);
+    handleInput(hexValue);
   }
 
   return (
