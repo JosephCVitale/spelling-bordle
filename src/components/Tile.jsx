@@ -7,15 +7,15 @@ const Tile = ({guess, prevs, guessCol, guessRow, tileCol, tileRow, ans}) => {
     useEffect(() => {
         if (guessCol === tileCol && guessRow === tileRow) {
             const letter = guess.charAt(tileCol-1);
-            setContent(<div>{letter}</div>);
+            setContent(<div>{letter.toUpperCase()}</div>);
         } else if (guessRow > tileRow){
             const rowGuess = prevs[tileRow];
             const tileLetter = rowGuess.charAt(tileCol-1);
             const ansLetter = ans.charAt(tileCol-1);
             if(tileLetter == ansLetter){
-                setContent(<div style={{backgroundColor: "forestgreen"}}>{tileLetter}</div>);
+                setContent(<div style={{backgroundColor: "forestgreen"}}>{tileLetter.toUpperCase()}</div>);
             } else if (!ans.includes(tileLetter)) {
-                setContent(<div style={{backgroundColor: "dimgray"}}>{tileLetter}</div>);
+                setContent(<div style={{backgroundColor: "dimgray"}}>{tileLetter.toUpperCase()}</div>);
             } else {
                 let remainingLetters = ans;
                 for (let i = tileCol; i<rowGuess.length; i++){
@@ -28,9 +28,9 @@ const Tile = ({guess, prevs, guessCol, guessRow, tileCol, tileRow, ans}) => {
                     remainingLetters = remainingLetters.replace(rowGuess.charAt(i), '');
                 }
                 if (remainingLetters.includes(tileLetter)){
-                    setContent(<div style={{backgroundColor: "goldenrod"}}>{tileLetter}</div>);
+                    setContent(<div style={{backgroundColor: "goldenrod"}}>{tileLetter.toUpperCase()}</div>);
                 } else {
-                    setContent(<div style={{backgroundColor: "dimgray"}}>{tileLetter}</div>);
+                    setContent(<div style={{backgroundColor: "dimgray"}}>{tileLetter.toUpperCase()}</div>);
                 }
             } 
         } else if (guessCol < tileCol){
