@@ -129,7 +129,33 @@ function App() {
   }, [guess, col, row, prevGuesses]);
 
   const handleHoney = (hexValue) => {
-    handleInput(hexValue);
+    if(hexValue == 'shuffle'){
+      shuffle();
+    } else {
+      handleInput(hexValue);
+    }
+  }
+
+  function shuffle() {
+    const requiredLetter = honeycomb[requiredLetterIndex];
+    const shuffledHoneycomb = [...honeycomb];
+    let currentIndex = shuffledHoneycomb.length, randomIndex;
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [shuffledHoneycomb[currentIndex], shuffledHoneycomb[randomIndex]] = [
+        shuffledHoneycomb[randomIndex], shuffledHoneycomb[currentIndex]];
+    }
+    let swapIndex = requiredLetterIndex;
+    for(let i = 0; i<shuffledHoneycomb.length; i++){
+      if (shuffledHoneycomb[i] == requiredLetter){
+        swapIndex = i;
+      }
+    }
+    let temp = shuffledHoneycomb[swapIndex];
+    shuffledHoneycomb[swapIndex] = shuffledHoneycomb[requiredLetterIndex];
+    shuffledHoneycomb[requiredLetterIndex] = temp;
+    setHoneycomb(shuffledHoneycomb);
   }
 
   return (

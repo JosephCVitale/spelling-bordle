@@ -75,15 +75,33 @@ nav h1 {
   width: 105px;
 }
 
-.honeyControl {  
+.emptyspace2 {
+  display: inline-block;
+  width: 15px;
+}
+
+.shuffle {
   display: inline-block;
   color: black;
-  height: 30px;
-  width: 50px;
-  line-height: 30px;
-  font-size: 15px;
+  height: 40px;
+  width: 40px;
+  line-height: 41px;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 40px;
+}
+
+.honeyControl {  
+  display: inline-block;
+  color: black;
+  height: 40px;
+  width: 80px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 40px;
 }
