@@ -5,17 +5,19 @@ import Honeycomb from './components/Honeycomb';
 import dictionary from './data-files/dictionary.json'; 
 
 function App() {
+
   const requiredLetterIndex = 3;
+
   const [guess, setGuess] = useState('');
   const [prevGuesses, setPrevGuesses] = useState([]);
   const [col, setCol] = useState(0);
   const [row, setRow] = useState(0);
-  const [win, setWin] = useState(false);
-  const [lose, setLose] = useState(false);
   const [honeycomb, setHoneycomb] = useState([]);
   const [validWords, setValidWords] = useState([]);
   const [answer, setAnswer] = useState('');
-  
+  const [win, setWin] = useState(false);
+  const [lose, setLose] = useState(false);
+
   function getRandomInt(max) {
     return Math.floor(Math.random() * max);
   }
@@ -71,7 +73,6 @@ function App() {
     console.log('required letter:', reqLetter);
     console.log('valid words:', vWords);
     console.log('answer:', ans);
-    
   }, []); 
 
   const eventfulKeys = [
@@ -121,15 +122,24 @@ function App() {
     };
   }, [guess, col, row, prevGuesses]);
 
+  const handleHoney = (hexValue) => {
+    if(win || lose || guess.length >= 5){
+      return;
+    } 
+    const newGuess = guess + hexValue;
+    setGuess(newGuess);
+    setCol(col => col + 1);
+  }
+
   return (
     <div className="App">
       <nav>
         <h1>Spelling Bordle</h1>
       </nav>
       <Grid guess={guess} col={col} row={row} prevs={prevGuesses} ans={answer} />
-      <Honeycomb honeycomb={honeycomb}/>
+      <Honeycomb honeycomb={honeycomb} handleHoney={handleHoney}/>
     </div>
   )
 }
 
-export default App
+export default App;
