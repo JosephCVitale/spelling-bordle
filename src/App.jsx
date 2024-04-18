@@ -31,7 +31,17 @@ function App() {
 
   function pickAnswer(words){
     let randomIndex =  Math.floor(Math.random() * words.length);
-    return words[randomIndex];
+    let ans = words[randomIndex];
+    let loops = 0;
+    while(ans.charAt(4) == 's'){
+      randomIndex =  Math.floor(Math.random() * words.length);
+      ans = words[randomIndex];
+      loops++;
+      if(loops ==  words.length*2){
+        break;
+      }
+    }
+    return ans;
   }
 
   useEffect(() => {
